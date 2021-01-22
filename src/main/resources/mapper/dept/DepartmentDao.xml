@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nysy.hospitalmanagement.dept.dao.DepartmentDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.nysy.hospitalmanagement.dept.entity.DepartmentEntity" id="departmentMap">
+        <result property="id" column="id"/>
+        <result property="departmentName" column="department_name"/>
+        <result property="departmentPrincipal" column="department_principal"/>
+        <result property="enable" column="enable"/>
+    </resultMap>
+
+
+</mapper>

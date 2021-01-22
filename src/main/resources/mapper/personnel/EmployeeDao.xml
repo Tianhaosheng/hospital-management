@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nysy.hospitalmanagement.personnel.dao.EmployeeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.nysy.hospitalmanagement.personnel.entity.EmployeeEntity" id="employeeMap">
+        <result property="id" column="id"/>
+        <result property="employeeName" column="employee_name"/>
+        <result property="employeeSex" column="employee_sex"/>
+        <result property="employeeSuperiorId" column="employee_superior_id"/>
+        <result property="employeePositionId" column="employee_position_id"/>
+        <result property="employeeDescription" column="employee_description"/>
+    </resultMap>
+
+
+</mapper>
