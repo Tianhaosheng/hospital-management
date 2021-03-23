@@ -20,8 +20,8 @@ public class OssController {
     public R getPolicy() {
         String endpoint = "oss-cn-beijing.aliyuncs.com";
 // 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录RAM控制台创建RAM账号。
-        String accessId = "LTAI4GDTr6H9UX2GYWXrBUgN";
-        String accessKeySecret = "JkKuRpbYj65kHZcUdeKdhRHPovdvxQ";
+        String accessId = "";
+        String accessKeySecret = "";
         String bucket = "hospital-management-ths";
         String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint
         // callbackUrl为 上传回调服务器的URL，请将下面的IP和Port配置为您自己的真实信息。

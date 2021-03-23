@@ -80,9 +80,8 @@ public class DepartmentController {
         departmentPathVo.setDepartmentPrincipalPath(departmentPrincipalPath);
 
 
-        List<PositionCascaderVo> employeeCascader = positionService.getEmployeeCascader();
 
-        return R.ok().put("department", departmentPathVo).put("employeeCascader",employeeCascader);
+        return R.ok().put("department", departmentPathVo);
     }
 
     /**

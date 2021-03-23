@@ -1,5 +1,7 @@
 package com.nysy.hospitalmanagement.personnel.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -48,5 +50,14 @@ public class EmployeeEntity implements Serializable {
 	 * 员工照片
 	 */
 	private String employeePhoto;
+	/**
+	 * 所属部门
+	 */
+	@TableField(value = "employee_dept_id",updateStrategy = FieldStrategy.IGNORED)
+	private Long employeeDeptId;
+	/**
+	 * 手机号
+	 */
+	private String employeePhone;
 
 }

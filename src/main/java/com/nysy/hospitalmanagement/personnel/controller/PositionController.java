@@ -4,12 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.nysy.hospitalmanagement.personnel.vo.PositionCascaderVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.nysy.hospitalmanagement.personnel.entity.PositionEntity;
 import com.nysy.hospitalmanagement.personnel.service.PositionService;
@@ -40,6 +37,12 @@ public class PositionController {
         PageUtils page = positionService.queryPage(params);
 
         return R.ok().put("page", page);
+    }
+
+    @GetMapping("/employee/Cascader")
+    public R getEmployeeCascader(){
+        List<PositionCascaderVo> employeeCascader = positionService.getEmployeeCascader();
+        return R.ok().put("employeeCascader",employeeCascader);
     }
 
 //    /personnel/position/optionsList

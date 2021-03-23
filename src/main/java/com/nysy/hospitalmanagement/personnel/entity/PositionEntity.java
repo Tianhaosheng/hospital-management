@@ -1,5 +1,7 @@
 package com.nysy.hospitalmanagement.personnel.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -31,6 +33,7 @@ public class PositionEntity implements Serializable {
 	/**
 	 * 上级
 	 */
+	@TableField(value = "position_superior_id",updateStrategy = FieldStrategy.IGNORED)
 	private Long positionSuperiorId;
 	/**
 	 * 职位描述

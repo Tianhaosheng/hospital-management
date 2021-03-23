@@ -1,5 +1,6 @@
 package com.nysy.hospitalmanagement.personnel.service.impl;
 
+import com.nysy.hospitalmanagement.dept.service.DeptService;
 import com.nysy.hospitalmanagement.personnel.entity.PositionEntity;
 import com.nysy.hospitalmanagement.personnel.service.PositionService;
 import com.nysy.hospitalmanagement.personnel.vo.EmployeeListVo;
@@ -30,8 +31,8 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeDao, EmployeeEntity
 
     @Autowired
     private PositionService positionService;
-
-
+    @Autowired
+    private DeptService deptService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -60,6 +61,13 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeDao, EmployeeEntity
             if (employeeEntity.getEmployeeSuperiorId() != null) {
                 employeeSuperiorName = this.getById(employeeEntity.getEmployeeSuperiorId()).getEmployeeName();
             }
+            Long employeeDeptId = employeeEntity.getEmployeeDeptId();
+            String deptName = null;
+            if(employeeDeptId != null){
+                deptName = deptService.getById(employeeDeptId).getDeptName();
+            }
+
+            employeeListVo.setEmployeeDeptName(deptName);
             employeeListVo.setEmployeeSuperiorName(employeeSuperiorName);
             return employeeListVo;
         }).collect(Collectors.toList());

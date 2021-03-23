@@ -3,7 +3,9 @@ package com.nysy.hospitalmanagement.dept.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.nysy.hospitalmanagement.common.utils.PageUtils;
 import com.nysy.hospitalmanagement.dept.entity.DeptEntity;
+import com.nysy.hospitalmanagement.dept.vo.DeptCascaderVo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +18,9 @@ import java.util.Map;
 public interface DeptService extends IService<DeptEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    List<DeptCascaderVo> getCascaderList();
+
+    List<Long> getDeptCascader(Long employeeDeptId);
 }
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nysy.hospitalmanagement.medicant.dao.MedicantDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.nysy.hospitalmanagement.medicant.entity.MedicantEntity" id="medicantMap">
+        <result property="id" column="id"/>
+        <result property="medicantCategory" column="medicant_category"/>
+        <result property="medicantName" column="medicant_name"/>
+        <result property="medicantOtc" column="medicant_OTC"/>
+        <result property="medicantSpecification" column="medicant_specification"/>
+        <result property="medicantValidity" column="medicant_validity"/>
+        <result property="medicantManufacturers" column="medicant_manufacturers"/>
+        <result property="medicantInventory" column="medicant_inventory"/>
+        <result property="medicantPrice" column="medicant_price"/>
+    </resultMap>
+
+
+</mapper>

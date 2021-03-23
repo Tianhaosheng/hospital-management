@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.nysy.hospitalmanagement.dept.service.DeptService;
 import com.nysy.hospitalmanagement.personnel.entity.PositionEntity;
 import com.nysy.hospitalmanagement.personnel.service.PositionService;
+import com.nysy.hospitalmanagement.personnel.vo.EmployeeListVo;
+import com.nysy.hospitalmanagement.personnel.vo.EmployeeWithCascaderVo;
 import com.nysy.hospitalmanagement.personnel.vo.PositionVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,16 +38,19 @@ public class EmployeeController {
     @Autowired
     private PositionService positionService;
 
+    @Autowired
+    private DeptService deptService;
+
 //      获取上级职位员工列表
 //    /personnel/employee/employeeSuperiorByEmployeeId/list
     @RequestMapping("/{type}/list/{id}")
     //@RequiresPermissions("personnel:employee:list")
     public R employeeSuperiorList(@PathVariable("id") Long id,@PathVariable("type") String type){
         Long positionSuperiorId = null;
-        if(type.equals("employeeSuperiorByEmployeeId")){
+        if(type.equals("employeeidSuperiorByEmployeeId")){
             positionSuperiorId = positionService.getById(employeeService.getById(id).getEmployeePositionId()).getPositionSuperiorId();
         }else {
-            positionSuperiorId = id;
+            positionSuperiorId = positionService.getById(id).getPositionSuperiorId();;
         }
         if(positionSuperiorId == null || positionSuperiorId == 0){
             return R.error("该职位未设置上级");
@@ -120,8 +126,14 @@ public class EmployeeController {
     public R info(@PathVariable("id") Long id){
 		EmployeeEntity employee = employeeService.getById(id);
 //		employee.setEmployeePositionId(positionService.getById(employee.getEmployeePositionId()).getId());
+        EmployeeWithCascaderVo employeeWithCascaderVo = new EmployeeWithCascaderVo();
+        BeanUtils.copyProperties(employee,employeeWithCascaderVo);
+        if(employee.getEmployeeDeptId() != null){
+            List<Long> employeeDeptCascader = deptService.getDeptCascader(employee.getEmployeeDeptId());
+            employeeWithCascaderVo.setEmployeeDeptCascader(employeeDeptCascader);
+        }
 
-        return R.ok().put("employee", employee);
+        return R.ok().put("employee", employeeWithCascaderVo);
     }
 
     /**

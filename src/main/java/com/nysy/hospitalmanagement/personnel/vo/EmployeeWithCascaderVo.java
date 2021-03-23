@@ -3,10 +3,10 @@ package com.nysy.hospitalmanagement.personnel.vo;
 import com.nysy.hospitalmanagement.personnel.entity.EmployeeEntity;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class EmployeeListVo extends EmployeeEntity {
+public class EmployeeWithCascaderVo extends EmployeeEntity {
 
-    private String employeeSuperiorName;
-    private String employeeDeptName;
-
+    private List<Long> employeeDeptCascader;
 }

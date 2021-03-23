@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nysy.hospitalmanagement.medicant.dao.MDemandDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.nysy.hospitalmanagement.medicant.entity.MDemandEntity" id="mDemandMap">
+        <result property="hospitalMDemandId" column="hospital_m_demand_id"/>
+        <result property="hospitalMDemandName" column="hospital_m_demand_name"/>
+        <result property="hospitalMDemandCount" column="hospital_m_demand_count"/>
+        <result property="hospitalMDemandBuytime" column="hospital_m_demand_buyTime"/>
+        <result property="hospitalMDemandManufacturers" column="hospital_m_demand_manufacturers"/>
+        <result property="hospitalMDemandCategory" column="hospital_m_demand_category"/>
+        <result property="hospitalMDemandProducedtime" column="hospital_m_demand_producedTime"/>
+        <result property="hospitalMDemandSpecification" column="hospital_m_demand_specification"/>
+        <result property="hospitalMDemandUnitprice" column="hospital_m_demand_unitprice"/>
+        <result property="hospitalMDemandAllprice" column="hospital_m_demand_allprice"/>
+        <result property="hospitalMDemandT" column="hospital_m_demand_T"/>
+        <result property="hospitalMDemandPrincipal" column="hospital_m_demand_principal"/>
+        <result property="hospitalMDemandBuymay" column="hospital_m_demand_BuyMay"/>
+    </resultMap>
+
+
+</mapper>

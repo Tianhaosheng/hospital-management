@@ -9,6 +9,7 @@ import com.nysy.hospitalmanagement.dept.entity.DepartmentEntity;
 import com.nysy.hospitalmanagement.dept.service.DepartmentService;
 import com.nysy.hospitalmanagement.dept.vo.DepartmentPathVo;
 import com.nysy.hospitalmanagement.dept.vo.DepartmentVo;
+import com.nysy.hospitalmanagement.dept.vo.DeptCascaderVo;
 import com.nysy.hospitalmanagement.dept.vo.DeptPathVo;
 import com.nysy.hospitalmanagement.personnel.service.EmployeeService;
 import com.nysy.hospitalmanagement.personnel.service.PositionService;
@@ -49,6 +50,18 @@ public class DeptController {
     private PositionService positionService;
 
 //    /dept/dept/department/list
+
+//    cascader/list
+    /**
+     * 部门科室级联列表
+     */
+    @RequestMapping("/cascader/list")
+//    @RequiresPermissions("dept:dept:list")
+    public R cascaderList(){
+        List<DeptCascaderVo> data = deptService.getCascaderList();
+
+        return R.ok().put("data", data);
+    }
 
     @GetMapping("/department/list")
     @RequiresPermissions("dept:department:list")
