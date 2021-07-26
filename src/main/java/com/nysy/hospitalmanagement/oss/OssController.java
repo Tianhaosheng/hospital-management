@@ -19,7 +19,7 @@ public class OssController {
     @RequestMapping("/oss/policy")
     public R getPolicy() {
         String endpoint = "oss-cn-beijing.aliyuncs.com";
-// 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录RAM控制台创建RAM账号。
+        // 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录RAM控制台创建RAM账号。
         String accessId = "";
         String accessKeySecret = "";
         String bucket = "hospital-management-ths";
