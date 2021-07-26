@@ -16,7 +16,7 @@ import com.nysy.hospitalmanagement.modules.app.form.LoginForm;
 /**
  * 用户
  *
- * @author Mark sunlightcs@gmail.com
+ *
  */
 public interface UserService extends IService<UserEntity> {
 
